@@ -1,10 +1,11 @@
 ﻿/*
  * Author: Zachery Brunner
+ * Edited By: Corrie Naughton
  * Class name: Size.cs
  * Purpose: Class used to represent sizes through an enumeration
  */
 
-namespace BleakwindBuffet.Data.Enums
+namespace Data.Enums
 {
     /// <summary>
     /// Provides available sizes
