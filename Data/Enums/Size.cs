@@ -5,7 +5,7 @@
  * Purpose: Class used to represent sizes through an enumeration
  */
 
-namespace Data.Enums
+namespace BleakwindBuffet.Data.Enums
 {
     /// <summary>
     /// Provides available sizes

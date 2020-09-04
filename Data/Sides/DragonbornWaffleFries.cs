@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Sides
+namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// Holds all of the information about the Dragonborn Waffle Fries Side

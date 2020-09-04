@@ -7,14 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Holds all of the information about the Garden Orc Omlette Entree
     /// </summary>
     public class GardenOrcOmlette
     {
-        private bool broccoli, mushrooms, tomato, cheddar = true;
+        private bool broccoli = true, mushrooms = true, tomato = true, cheddar = true;
         /// <summary>
         /// Gets and sets values for broccoli
         /// </summary>

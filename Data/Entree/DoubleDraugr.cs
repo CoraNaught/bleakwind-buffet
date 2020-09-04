@@ -7,14 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Holds all of the information about the Double Draugr Entree
     /// </summary>
     public class DoubleDraugr
     {
-        private bool bun, ketchup, mustard, pickle, cheese, tomato, lettuce, mayo = true;
+        private bool bun = true, ketchup = true, mustard = true, pickle = true, cheese = true, tomato = true, lettuce = true, mayo = true;
         /// <summary>
         /// Gets and sets values for bun
         /// </summary>

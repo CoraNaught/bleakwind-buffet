@@ -6,16 +6,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Data.Enums;
 
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Holds all of the information about the Markarth Milk Drink
     /// </summary>
     public class MarkarthMilk
     {
-        private bool ice = true;
+        private bool ice = false;
         private Enums.Size size = Enums.Size.Small;
         /// <summary>
         /// Gets and sets values for ice

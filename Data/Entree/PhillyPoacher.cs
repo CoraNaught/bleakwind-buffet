@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Holds all of the information about the Philly Poacher Entrees
@@ -15,7 +15,7 @@ namespace Data.Entrees
     public class PhillyPoacher
     {
 
-        private bool sirloin, onion, roll = true;
+        private bool sirloin = true, onion = true, roll = true;
         /// <summary>
         /// Gets and sets values for sirloin
         /// </summary>

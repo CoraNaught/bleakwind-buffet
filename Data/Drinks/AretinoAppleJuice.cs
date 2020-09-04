@@ -7,15 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
-using Data.Enums;
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Holds all of the information about the Aretino Apple Juice Drink
     /// </summary>
     public class AretinoAppleJuice
     {
-        private bool ice = true;
+        private bool ice = false;
         private Enums.Size size = Enums.Size.Small;
         /// <summary>
         /// Gets and sets values for ice

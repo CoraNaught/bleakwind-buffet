@@ -4,7 +4,7 @@
  * Purpose: Class used to represent solda flavors through an enumeration
  */
 
-namespace Data.Enums
+namespace BleakwindBuffet.Data.Enums
 {
     /// <summary>
     /// Stores available soda flavors

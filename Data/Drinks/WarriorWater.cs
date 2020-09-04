@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Holds all of the information about the Warrior Water Drink
@@ -69,7 +69,7 @@ namespace Data.Drinks
             get
             {
                 List<string> result = new List<string>();
-                if (Ice == false) result.Add("Hold Ice");
+                if (Ice == false) result.Add("Hold ice");
                 if(Lemon == true) result.Add("Add lemon");
                 return result;
             }

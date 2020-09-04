@@ -8,14 +8,14 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Holds all of the information about the Briarheart Burger Entree
     /// </summary>
     public class BriarheartBurger
     {
-        private bool bun, ketchup, mustard, pickle, cheese = true;
+        private bool bun = true, ketchup = true, mustard = true, pickle = true, cheese = true;
         /// <summary>
         /// Gets and sets values for bun
         /// </summary>

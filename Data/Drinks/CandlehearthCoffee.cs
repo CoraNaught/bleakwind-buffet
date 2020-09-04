@@ -6,8 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Data.Enums;
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Holds all of the information about the Candlehearth Coffee Drink
@@ -15,7 +14,7 @@ namespace Data.Drinks
     public class CandlehearthCoffee
     {
         private Enums.Size size = Enums.Size.Small;
-        private bool ice, decaf, roomForCream = false;
+        private bool ice = false, decaf = false, roomForCream = false;
         /// <summary>
         /// Gets and sets values for ice
         /// </summary>

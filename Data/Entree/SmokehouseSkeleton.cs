@@ -7,14 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Holds all of the information about the Smokehouse Skeleton Entree
     /// </summary>
     public class SmokehouseSkeleton
     {
-        private bool sausageLink, egg, hashBrowns, pancake = true;
+        private bool sausageLink = true, egg = true, hashBrowns = true, pancake = true;
         /// <summary>
         /// Gets and sets values for sausage
         /// </summary>
