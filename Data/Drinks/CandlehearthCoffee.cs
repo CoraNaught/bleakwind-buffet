@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Corrie Naughton
  * Class name: CandlehearthCoffee.cs
- * Purpose: Class used to represent Candlehearth Coffee Drink
+ * Purpose: Class used to represent Candlehearth Coffee Drink.
  */
 using System;
 using System.Collections.Generic;
