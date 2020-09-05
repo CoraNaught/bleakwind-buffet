@@ -39,7 +39,10 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public List<string> SpecialInstructions
         {
-            get;
+            get
+            {
+                return new List<string>();
+            }
         }
         /// <summary>
         /// override that prints the name of this object

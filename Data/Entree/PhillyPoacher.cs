@@ -68,9 +68,9 @@ namespace BleakwindBuffet.Data.Entrees
             get
             {
                 List<string> result = new List<string>();
-                if (Sirloin == false) result.Add("Hold Sirloin");
-                if (Onion == false) result.Add("Hold Onion");
-                if (Roll == false) result.Add("Hold Roll");
+                if (Sirloin == false) result.Add("Hold sirloin");
+                if (Onion == false) result.Add("Hold onion");
+                if (Roll == false) result.Add("Hold roll");
                 return result;
             }
         }
