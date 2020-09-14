@@ -7,15 +7,17 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Holds all of the information about the Aretino Apple Juice Drink
     /// </summary>
-    public class AretinoAppleJuice
+    public class AretinoAppleJuice : Drink
     {
         private bool ice = false;
         private Enums.Size size = Enums.Size.Small;
+
         /// <summary>
         /// Gets and sets values for ice
         /// </summary>
@@ -24,18 +26,11 @@ namespace BleakwindBuffet.Data.Drinks
             get => ice;
             set => ice = value;
         }
-        /// <summary>
-        /// Gets and sets values for drink size
-        /// </summary>
-        public Enums.Size Size
-        {
-            get => size;
-            set => size = value;
-        }
+
         /// <summary>
         /// Stores the price of this object
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -56,7 +51,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Stores the amount of calories in this object
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -77,7 +72,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Stores a list of special instructions for this object
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

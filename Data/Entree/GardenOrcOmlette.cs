@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Holds all of the information about the Garden Orc Omlette Entree
     /// </summary>
-    public class GardenOrcOmlette
+    public class GardenOrcOmlette : Entree
     {
         private bool broccoli = true, mushrooms = true, tomato = true, cheddar = true;
         /// <summary>
@@ -50,7 +50,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Stores the price of this object
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -60,7 +60,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Stores the amount of calories in this object
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -70,7 +70,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Stores a list of special instructions for this object
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

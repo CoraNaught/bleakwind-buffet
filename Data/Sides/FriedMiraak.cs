@@ -12,23 +12,14 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Holds all of the information about the Fried Miraak Side
     /// </summary>
-    public class FriedMiraak
+    public class FriedMiraak : Side
     {
         private Enums.Size size = Enums.Size.Small;
 
         /// <summary>
-        /// Gets and sets values for side size
-        /// </summary>
-        public Enums.Size Size
-        {
-            get => size;
-            set => size = value;
-        }
-
-        /// <summary>
         /// Stores the price of this object
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -49,7 +40,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Stores the amount of calories in this object
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -70,7 +61,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Stores a list of special instructions for this object
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

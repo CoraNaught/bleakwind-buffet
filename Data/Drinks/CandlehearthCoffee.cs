@@ -11,7 +11,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Holds all of the information about the Candlehearth Coffee Drink
     /// </summary>
-    public class CandlehearthCoffee
+    public class CandlehearthCoffee : Drink
     {
         private Enums.Size size = Enums.Size.Small;
         private bool ice = false, decaf = false, roomForCream = false;
@@ -22,14 +22,6 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get => ice;
             set => ice = value;
-        }
-        /// <summary>
-        /// Gets and sets values for drink size
-        /// </summary>
-        public Enums.Size Size
-        {
-            get => size;
-            set => size = value;
         }
         /// <summary>
         /// Gets and sets values for decaf or not
@@ -50,7 +42,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Stores the price of this object
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -71,7 +63,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Stores the amount of calories in this object
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -92,7 +84,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Stores a list of special instructions for this object
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

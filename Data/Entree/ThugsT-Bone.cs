@@ -12,12 +12,12 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Holds all of the information about the Thugs T_Bone
     /// </summary>
-    public class ThugsT_Bone
+    public class ThugsT_Bone : Entree
     {
         /// <summary>
         /// Stores the price of this object
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -27,7 +27,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Stores the amount of calories in this object
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -37,7 +37,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Stores a list of special instructions for this object
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

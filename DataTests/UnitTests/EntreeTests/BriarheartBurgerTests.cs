@@ -9,12 +9,20 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using System;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class BriarheartBurgerTests
     {
-        
+        [Fact]
+        public void ShouldBeAEntree()
+        {
+            BriarheartBurger briarheart = new BriarheartBurger();
+            Assert.IsAssignableFrom<Entree>(briarheart);
+            Assert.IsAssignableFrom<IOrderItem>(briarheart);
+        }
         [Fact]
         public void ShouldIncludeBunByDefault()
         {

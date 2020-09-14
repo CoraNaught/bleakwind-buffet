@@ -15,6 +15,13 @@ namespace DataTests.UnitTests.DrinkTests
     public class WarriorWaterTests
     {
         [Fact]
+        public void ShouldBeADrink()
+        {
+            WarriorWater warriorWater = new WarriorWater();
+            Assert.IsAssignableFrom<Drink>(warriorWater);
+            Assert.IsAssignableFrom<IOrderItem>(warriorWater);
+        }
+        [Fact]
         public void ShouldNotIncludeIceByDefault()
         {
             WarriorWater warriorWater = new WarriorWater();

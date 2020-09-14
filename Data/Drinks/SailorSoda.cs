@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Holds all of the information about the Sailor Soda Drink
     /// </summary>
-    public class SailorSode
+    public class SailorSoda : Drink
     {
         private bool ice = true;
         private Enums.Size size = Enums.Size.Small;
@@ -27,14 +27,6 @@ namespace BleakwindBuffet.Data.Drinks
             set => ice = value;
         }
         /// <summary>
-        /// Gets and sets values for drink size
-        /// </summary>
-        public Enums.Size Size
-        {
-            get => size;
-            set => size = value;
-        }
-        /// <summary>
         /// Gets and sets values for drink flavor
         /// </summary>
         public Enums.SodaFlavor Flavor
@@ -45,7 +37,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Stores the price of this object
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -66,7 +58,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Stores the amount of calories in this object
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -87,7 +79,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Stores a list of special instructions for this object
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

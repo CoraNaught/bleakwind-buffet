@@ -15,6 +15,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class PhillyPoacherTests
     {
         [Fact]
+        public void ShouldBeAEntree()
+        {
+            PhillyPoacher phillyPoacher = new PhillyPoacher();
+            Assert.IsAssignableFrom<Entree>(phillyPoacher);
+            Assert.IsAssignableFrom<IOrderItem>(phillyPoacher);
+        }
+        [Fact]
         public void ShouldInlcudeSirloinByDefault()
         {
             PhillyPoacher phillyPoacher = new PhillyPoacher();

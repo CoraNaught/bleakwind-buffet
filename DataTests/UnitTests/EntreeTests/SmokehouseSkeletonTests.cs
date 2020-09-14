@@ -13,7 +13,14 @@ using System.Collections.Generic;
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class SmokehouseSkeletonTests
-    {        
+    {
+        [Fact]
+        public void ShouldBeAEntree()
+        {
+            SmokehouseSkeleton smokehouseSkeleton = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<Entree>(smokehouseSkeleton);
+            Assert.IsAssignableFrom<IOrderItem>(smokehouseSkeleton);
+        }
         [Fact]
         public void ShouldInlcudeSausageByDefault()
         {

@@ -13,7 +13,14 @@ using System.Collections.Generic;
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class DoubleDraugrTests
-    {   
+    {
+        [Fact]
+        public void ShouldBeAEntree()
+        {
+            DoubleDraugr doubleDraugr = new DoubleDraugr();
+            Assert.IsAssignableFrom<Entree>(doubleDraugr);
+            Assert.IsAssignableFrom<IOrderItem>(doubleDraugr);
+        }
         [Fact]
         public void ShouldIncludeBunByDefault()
         {
