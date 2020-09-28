@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="PointOfSale.DoubleDraugr"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.ColumnSpan="3" TextAlignment="Center" VerticalAlignment="Center" FontSize="20">Customize Double Draugr</TextBlock>
+        <CheckBox Name="Bun" Checked="Bun_Checked" Unchecked="Bun_Unchecked" IsChecked="True" Grid.Row="1">Bun</CheckBox>
+        <CheckBox Name="Mustard" Checked="Mustard_Checked" Unchecked="Mustard_Unchecked" IsChecked="True" Grid.Row="2">Mustard</CheckBox>
+        <CheckBox Name="Pickle" Checked="Pickle_Checked" Unchecked="Pickle_Unchecked" IsChecked="True" Grid.Row="3">Pickle</CheckBox>
+        <CheckBox Name="Cheese" Checked="Cheese_Checked" Unchecked="Cheese_Unchecked"  IsChecked="True" Grid.Row="4">Cheese</CheckBox>
+        <CheckBox Name="Tomato" Checked="Tomato_Checked" Unchecked="Tomato_Unchecked" IsChecked="True" Grid.Row="5">Tomato</CheckBox>
+        <CheckBox Name="Lettuce" Checked="Lettuce_Checked" Unchecked="Lettuce_Unchecked" IsChecked="True" Grid.Row="6">Lettuce</CheckBox>
+        <CheckBox Name="Mayo" Checked="Mayo_Checked" Unchecked="Mayo_Unchecked" IsChecked="True" Grid.Row="7">Mayo</CheckBox>
+        <Button Click="Button_Click"  Grid.Row="9" Grid.Column="3">Done</Button>
+    </Grid>
+</UserControl>
