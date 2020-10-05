@@ -22,7 +22,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Sirloin
         {
             get => sirloin;
-            set => sirloin = value;
+            set
+            {
+                sirloin = value;
+                NotifyPropertyChanged("Sirloin");
+            }
         }
         /// <summary>
         /// Gets and sets values for onion
@@ -30,7 +34,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Onion
         {
             get => onion;
-            set => onion = value;
+            set
+            {
+                onion = value;
+                NotifyPropertyChanged("Onion");
+            }
         }
         /// <summary>
         /// Gets and sets values for roll
@@ -38,7 +46,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Roll
         {
             get => roll;
-            set => roll = value;
+            set
+            {
+                roll = value;
+                NotifyPropertyChanged("Roll");
+            }
         }
         /// <summary>
         /// Stores the price of this object

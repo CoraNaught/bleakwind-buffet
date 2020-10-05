@@ -95,18 +95,26 @@ namespace DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectSpecialInstructions(bool includeIce, bool includeLemon)
         {
             WarriorWater warriorWater = new WarriorWater();
-            List<string> specialInstructions = new List<string>();
-            if (!includeIce)
+            if (!includeIce && includeLemon)
             {
                 warriorWater.Ice = false;
-                specialInstructions.Add("Hold ice");
+                warriorWater.Lemon = true;
+                Assert.Equal(warriorWater.SpecialInstructions, new List<string> { "Hold ice", "Add lemon" });
             }
-            if (includeLemon)
+            else if (!includeIce)
+            {
+                warriorWater.Ice = false;
+                Assert.Equal(warriorWater.SpecialInstructions, new List<string> { "Hold ice" });
+            }
+            else if (includeLemon)
             {
                 warriorWater.Lemon = true;
-                specialInstructions.Add("Add lemon");
+                Assert.Equal(warriorWater.SpecialInstructions, new List<string> { "Add lemon" });
             }
-            Assert.Equal(warriorWater.SpecialInstructions, specialInstructions);
+            else
+            {
+                Assert.Equal(warriorWater.SpecialInstructions, new List<string>());
+            }
         }
 
         [Theory]
@@ -118,6 +126,43 @@ namespace DataTests.UnitTests.DrinkTests
             WarriorWater warriorWater = new WarriorWater();
             warriorWater.Size = size;
             Assert.Equal(warriorWater.ToString(), name);
+        }
+
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var WW = new WarriorWater();
+
+            Assert.PropertyChanged(WW, "Ice", () =>
+            {
+                WW.Ice = true;
+            });
+
+            Assert.PropertyChanged(WW, "Ice", () =>
+            {
+                WW.Ice = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var WW = new WarriorWater();
+
+            Assert.PropertyChanged(WW, "Size", () =>
+            {
+                WW.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(WW, "Size", () =>
+            {
+                WW.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(WW, "Size", () =>
+            {
+                WW.Size = Size.Large;
+            });
         }
     }
 }

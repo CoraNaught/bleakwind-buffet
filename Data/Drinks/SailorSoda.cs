@@ -16,7 +16,6 @@ namespace BleakwindBuffet.Data.Drinks
     public class SailorSoda : Drink
     {
         private bool ice = true;
-        private Enums.Size size = Enums.Size.Small;
         private Enums.SodaFlavor flavor = Enums.SodaFlavor.Cherry;
         /// <summary>
         /// Gets and sets values for ice
@@ -24,7 +23,11 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;
-            set => ice = value;
+            set
+            {
+                ice = value;
+                NotifyPropertyChanged("Ice");
+            }
         }
         /// <summary>
         /// Gets and sets values for drink flavor
@@ -32,7 +35,11 @@ namespace BleakwindBuffet.Data.Drinks
         public Enums.SodaFlavor Flavor
         {
             get => flavor;
-            set => flavor = value;
+            set
+            {
+                flavor = value;
+                NotifyPropertyChanged("Flavor");
+            }
         }
         /// <summary>
         /// Stores the price of this object

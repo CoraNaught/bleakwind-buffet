@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
@@ -16,7 +17,6 @@ namespace BleakwindBuffet.Data.Drinks
     public class AretinoAppleJuice : Drink
     {
         private bool ice = false;
-        private Enums.Size size = Enums.Size.Small;
 
         /// <summary>
         /// Gets and sets values for ice
@@ -24,7 +24,11 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;
-            set => ice = value;
+            set
+            {
+                ice = value;
+                NotifyPropertyChanged("Ice");
+            }
         }
 
         /// <summary>
@@ -81,6 +85,7 @@ namespace BleakwindBuffet.Data.Drinks
                 return result;
             }
         }
+
         /// <summary>
         /// override that prints the name and size of this object
         /// </summary>

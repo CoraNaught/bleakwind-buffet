@@ -14,8 +14,6 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class VokunSalad : Side
     {
-        private Enums.Size size = Enums.Size.Small;
-
         /// <summary>
         /// Stores the price of this object
         /// </summary>

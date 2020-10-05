@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Corrie Naughton
+ * Class name: CandlehearthCoffee.cs
+ * Purpose: Class that CandlehearthCoffee user control
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

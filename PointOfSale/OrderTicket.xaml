@@ -6,6 +6,11 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="200">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="20">Order #100</TextBlock>
         <Button DockPanel.Dock="Bottom">Compete</Button>

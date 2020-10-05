@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Entrees;
+﻿/*
+ * Author: Corrie Naughton
+ * Class name: BriarheartBurger.cs
+ * Purpose: Class that BriarheartBurger user control
+ */
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Linq;

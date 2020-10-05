@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Entrees;
+﻿/*
+ * Author: Corrie Naughton
+ * Class name: DisplayControler.cs
+ * Purpose: Class that DisplayControler user control
+ */
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;

@@ -16,14 +16,17 @@ namespace BleakwindBuffet.Data.Drinks
     {
         private bool ice = true;
         private bool lemon = false;
-        private Enums.Size size = Enums.Size.Small;
         /// <summary>
         /// Gets and sets values for ice
         /// </summary>
         public bool Ice
         {
             get => ice;
-            set => ice = value;
+            set
+            {
+                ice = value;
+                NotifyPropertyChanged("Ice");
+            }
         }
         /// <summary>
         /// Gets and sets values for lemons
@@ -31,7 +34,11 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Lemon
         {
             get => lemon;
-            set => lemon = value;
+            set
+            {
+                lemon = value;
+                NotifyPropertyChanged("Lemon");
+            }
         }
         /// <summary>
         /// Stores the price of this object

@@ -6,6 +6,14 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -20,7 +28,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.ColumnSpan="3" TextAlignment="Center" VerticalAlignment="Center" FontSize="20">Customize Arentino Apple Juice</TextBlock>
+        <TextBlock Grid.ColumnSpan="3" TextAlignment="Center" VerticalAlignment="Center" FontSize="40">Customize Arentino Apple Juice</TextBlock>
         <CheckBox Grid.Row="1" Name="Ice" Checked="Ice_Checked" Unchecked="Ice_Unchecked">Ice</CheckBox>
         <CheckBox Grid.Row="2" Name="RoomForCream" Checked="RoomForCream_Checked" Unchecked="RoomForCream_Unchecked">Room for Cream</CheckBox>
         <CheckBox Grid.Row="3" Name="Decaf" Checked="Decaf_Checked" Unchecked="Decaf_Unchecked">Decaf</CheckBox>

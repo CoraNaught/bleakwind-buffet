@@ -21,7 +21,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Broccoli
         {
             get => broccoli;
-            set => broccoli = value;
+            set
+            {
+                broccoli = value;
+                NotifyPropertyChanged("Broccoli");
+            }
         }
         /// <summary>
         /// Gets and sets values for mushrooms
@@ -29,7 +33,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mushrooms
         {
             get => mushrooms;
-            set => mushrooms = value;
+            set
+            {
+                mushrooms = value;
+                NotifyPropertyChanged("Mushrooms");
+            }
         }
         /// <summary>
         /// Gets and sets values for tomato
@@ -37,7 +45,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Tomato
         {
             get => tomato;
-            set => tomato = value;
+            set
+            {
+                tomato = value;
+                NotifyPropertyChanged("Tomato");
+            }
         }
         /// <summary>
         /// Gets and sets values for cheddar
@@ -45,7 +57,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheddar
         {
             get => cheddar;
-            set => cheddar = value;
+            set
+            {
+                cheddar = value;
+                NotifyPropertyChanged("Cheddar");
+            }
         }
         /// <summary>
         /// Stores the price of this object

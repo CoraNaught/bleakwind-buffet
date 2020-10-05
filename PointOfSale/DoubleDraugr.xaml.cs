@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Corrie Naughton
+ * Class name: DoubleDraugr.cs
+ * Purpose: Class that DoubleDraugr user control
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

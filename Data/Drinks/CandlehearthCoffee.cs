@@ -13,7 +13,6 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class CandlehearthCoffee : Drink
     {
-        private Enums.Size size = Enums.Size.Small;
         private bool ice = false, decaf = false, roomForCream = false;
         /// <summary>
         /// Gets and sets values for ice
@@ -21,7 +20,10 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;
-            set => ice = value;
+            set {
+                ice = value;
+                NotifyPropertyChanged("Ice");
+            }
         }
         /// <summary>
         /// Gets and sets values for decaf or not
@@ -29,7 +31,11 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Decaf
         {
             get => decaf;
-            set => decaf = value;
+            set
+            {
+                decaf = value;
+                NotifyPropertyChanged("Decaf");
+            }
         }
         /// <summary>
         /// Gets and sets values for room for cream or not
@@ -37,7 +43,11 @@ namespace BleakwindBuffet.Data.Drinks
         public bool RoomForCream
         {
             get => roomForCream;
-            set => roomForCream = value;
+            set
+            {
+                roomForCream = value;
+                NotifyPropertyChanged("Room for Cream");
+            }
         }
         /// <summary>
         /// Stores the price of this object

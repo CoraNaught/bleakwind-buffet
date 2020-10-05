@@ -6,6 +6,14 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -20,7 +28,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.ColumnSpan="3" TextAlignment="Center" VerticalAlignment="Center" FontSize="20">Customize Markarth Milk</TextBlock>
+        <TextBlock Grid.ColumnSpan="3" TextAlignment="Center" VerticalAlignment="Center" FontSize="40">Customize Markarth Milk</TextBlock>
         <CheckBox Name="Ice" Checked="Ice_Checked" Unchecked="Ice_Unchecked" Grid.Row="1">Ice</CheckBox>
         <CheckBox Name="Small" Checked="Small_Checked" Grid.Row="1" Grid.Column="1">Small</CheckBox>
         <CheckBox Name="Medium" Checked="Medium_Checked" Grid.Row="2" Grid.Column="1">Medium</CheckBox>

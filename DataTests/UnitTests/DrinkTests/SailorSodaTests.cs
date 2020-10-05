@@ -138,5 +138,78 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             sailorSoda.Size = size;
             Assert.Equal(sailorSoda.ToString(), name);
         }
+
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var SS = new SailorSoda();
+
+            Assert.PropertyChanged(SS, "Ice", () =>
+            {
+                SS.Ice = true;
+            });
+
+            Assert.PropertyChanged(SS, "Ice", () =>
+            {
+                SS.Ice = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var SS = new SailorSoda();
+
+            Assert.PropertyChanged(SS, "Size", () =>
+            {
+                SS.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(SS, "Size", () =>
+            {
+                SS.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(SS, "Size", () =>
+            {
+                SS.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingFlavorNotifiesFlavorProperty()
+        {
+            var SS = new SailorSoda();
+
+            Assert.PropertyChanged(SS, "Flavor", () =>
+            {
+                SS.Flavor = SodaFlavor.Blackberry;
+            });
+
+            Assert.PropertyChanged(SS, "Flavor", () =>
+            {
+                SS.Flavor = SodaFlavor.Cherry;
+            });
+
+            Assert.PropertyChanged(SS, "Flavor", () =>
+            {
+                SS.Flavor = SodaFlavor.Grapefruit;
+            });
+
+            Assert.PropertyChanged(SS, "Flavor", () =>
+            {
+                SS.Flavor = SodaFlavor.Lemon;
+            });
+
+            Assert.PropertyChanged(SS, "Flavor", () =>
+            {
+                SS.Flavor = SodaFlavor.Peach;
+            });
+
+            Assert.PropertyChanged(SS, "Flavor", () =>
+            {
+                SS.Flavor = SodaFlavor.Watermelon;
+            });
+        }
     }
 }

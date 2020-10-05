@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -8,7 +9,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// A base class representing the common properties of the entrees
     /// </summary>
-    public abstract class Entree : IOrderItem
+    public abstract class Entree : IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// The price of the entree
@@ -27,5 +28,12 @@ namespace BleakwindBuffet.Data.Entrees
         /// Special instructions for the preperation of the entree
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

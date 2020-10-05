@@ -15,14 +15,17 @@ namespace BleakwindBuffet.Data.Drinks
     public class MarkarthMilk : Drink
     {
         private bool ice = false;
-        private Enums.Size size = Enums.Size.Small;
         /// <summary>
         /// Gets and sets values for ice
         /// </summary>
         public bool Ice
         {
             get => ice;
-            set => ice = value;
+            set
+            {
+                ice = value;
+                NotifyPropertyChanged("Ice");
+            }
         }
         /// <summary>
         /// Stores the price of this object

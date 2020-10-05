@@ -1,6 +1,13 @@
-﻿using System;
+﻿/*
+ * Author: Corrie Naughton
+ * Class name: ArentinoAppleJuice.cs
+ * Purpose: Class that ArentinoAppleJuice user control
+ */
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,6 +31,7 @@ namespace PointOfSale
         MenuSelectionComponent menu;
         OrderTicket order;
         BleakwindBuffet.Data.Drinks.AretinoAppleJuice appleJuice = new BleakwindBuffet.Data.Drinks.AretinoAppleJuice();
+
         /// <summary>
         /// Arentino Apple Juice customization menu
         /// </summary>

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Corrie Naughton
+ * Class name: IOrderItem.cs
+ * Purpose: interface for ordered items
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 

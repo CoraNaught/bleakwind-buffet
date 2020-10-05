@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Corrie Naughton
+ * Class name: App.cs
+ * Purpose: Class that represents the point of sale application
+ */
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;

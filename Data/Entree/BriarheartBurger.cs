@@ -22,7 +22,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Bun
         {
             get => bun;
-            set => bun = value;
+            set
+            {
+                bun = value;
+                NotifyPropertyChanged("Bun");
+            }
         }
         /// <summary>
         /// Gets and sets values for ketchup
@@ -30,7 +34,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Ketchup
         {
             get => ketchup;
-            set => ketchup = value;
+            set
+            {
+                ketchup = value;
+                NotifyPropertyChanged("Ketchup");
+            }
         }
         /// <summary>
         /// Gets and sets values for mustard
@@ -38,7 +46,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mustard
         {
             get => mustard;
-            set => mustard = value;
+            set
+            {
+                mustard = value;
+                NotifyPropertyChanged("Mustard");
+            }
         }
         /// <summary>
         /// Gets and sets values for pickle
@@ -46,7 +58,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pickle
         {
             get => pickle;
-            set => pickle = value;
+            set
+            {
+                pickle = value;
+                NotifyPropertyChanged("Pickle");
+            }
         }
         /// <summary>
         /// Gets and sets values for cheese
@@ -54,7 +70,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheese
         {
             get => cheese;
-            set => cheese = value;
+            set
+            {
+                cheese = value;
+                NotifyPropertyChanged("Cheese");
+            }
         }
         /// <summary>
         /// Stores the price of this object

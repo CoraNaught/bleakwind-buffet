@@ -21,7 +21,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool SausageLink
         {
             get => sausageLink;
-            set => sausageLink = value;
+            set
+            {
+                sausageLink = value;
+                NotifyPropertyChanged("Sausage Link");
+            }
         }
         /// <summary>
         /// Gets and sets values for egg
@@ -29,7 +33,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Egg
         {
             get => egg;
-            set => egg = value;
+            set
+            {
+                egg = value;
+                NotifyPropertyChanged("Egg");
+            }
         }
         /// <summary>
         /// Gets and sets values for hash browns
@@ -37,7 +45,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool HashBrowns
         {
             get => hashBrowns;
-            set => hashBrowns = value;
+            set
+            {
+                hashBrowns = value;
+                NotifyPropertyChanged("Hash Browns");
+            }
         }
         /// <summary>
         /// Gets and sets values for pan cake
@@ -45,7 +57,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool PanCake
         {
             get => pancake;
-            set => pancake = value;
+            set
+            {
+                pancake = value;
+                NotifyPropertyChanged("Pancake");
+            }
         }
         /// <summary>
         /// Stores the price of this object
