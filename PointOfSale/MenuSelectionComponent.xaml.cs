@@ -31,6 +31,7 @@ namespace PointOfSale
         public MenuSelectionComponent(DisplayControler display, OrderTicket order)
         {
             InitializeComponent();
+         
             this.parent = display;
             this.order = order;
         }

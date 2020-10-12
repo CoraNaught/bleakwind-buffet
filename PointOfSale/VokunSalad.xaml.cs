@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Data.Odbc;
 using System.Linq;
@@ -47,7 +48,40 @@ namespace PointOfSale
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             display.containerBorder.Child = menu;
-            order.itemsListView.Items.Add(vokunSalad.ToString());
+            if (order.DataContext is Order list)
+            {
+                var task = vokunSalad;
+                list.Add(task);
+            }
+            order.itemsListView.Items.Add($"{vokunSalad.ToString()}\t\t${vokunSalad.Price}");
+            foreach (var item in vokunSalad.SpecialInstructions)
+            {
+                order.itemsListView.Items.Add($"-{item}");
+            }
+            Button button = new Button();
+            button.Content = "Remove";
+            button.Click += Remove_Click;
+            order.itemsListView.Items.Add(button);
+        }
+        /// <summary>
+        /// Handles remove item click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            if (order.DataContext is Order list)
+            {
+                var task = vokunSalad;
+                list.Remove(task);
+            }
+            order.itemsListView.Items.Remove($"{vokunSalad.ToString()}\t\t${vokunSalad.Price}");
+            foreach (var item in vokunSalad.SpecialInstructions)
+            {
+                order.itemsListView.Items.Remove($"-{item}");
+            }
+            order.itemsListView.Items.Remove(button);
         }
         /// <summary>
         /// Handles small check event

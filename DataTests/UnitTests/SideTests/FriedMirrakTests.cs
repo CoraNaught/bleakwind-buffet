@@ -10,6 +10,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -21,6 +22,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             FriedMiraak friedMiraak = new FriedMiraak();
             Assert.IsAssignableFrom<Side>(friedMiraak);
             Assert.IsAssignableFrom<IOrderItem>(friedMiraak);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            FriedMiraak friedMiraak = new FriedMiraak();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(friedMiraak);
         }
         [Fact]
         public void ShouldBeSmallByDefault()

@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -20,6 +21,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             ThugsT_Bone thugsT_Bone = new ThugsT_Bone();
             Assert.IsAssignableFrom<Entree>(thugsT_Bone);
             Assert.IsAssignableFrom<IOrderItem>(thugsT_Bone);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            ThugsT_Bone thugsT_Bone = new ThugsT_Bone();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(thugsT_Bone);
         }
         [Fact]
         public void ShouldReturnCorrectPrice()

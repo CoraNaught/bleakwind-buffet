@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -20,6 +21,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             PhillyPoacher phillyPoacher = new PhillyPoacher();
             Assert.IsAssignableFrom<Entree>(phillyPoacher);
             Assert.IsAssignableFrom<IOrderItem>(phillyPoacher);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            PhillyPoacher phillyPoacher = new PhillyPoacher();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(phillyPoacher);
         }
         [Fact]
         public void ShouldInlcudeSirloinByDefault()

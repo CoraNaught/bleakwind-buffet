@@ -22,6 +22,8 @@ namespace BleakwindBuffet.Data.Sides
             {
                 size = value;
                 NotifyPropertyChanged("Size");
+                NotifyPropertyChanged("Price");
+                NotifyPropertyChanged("Calories");
             }
         }
 

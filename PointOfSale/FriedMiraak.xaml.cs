@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,10 +40,43 @@ namespace PointOfSale
             Small.IsChecked = true;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
             display.containerBorder.Child = menu;
-            order.itemsListView.Items.Add(friedMiraak.ToString());
+            if (order.DataContext is Order list)
+            {
+                var task = friedMiraak;
+                list.Add(task);
+            }
+            order.itemsListView.Items.Add($"{friedMiraak.ToString()}\t\t${friedMiraak.Price}");
+            foreach (var item in friedMiraak.SpecialInstructions)
+            {
+                order.itemsListView.Items.Add($"-{item}");
+            }
+            Button button = new Button();
+            button.Content = "Remove";
+            button.Click += Remove_Click;
+            order.itemsListView.Items.Add(button);
+        }
+        /// <summary>
+        /// Handles remove item click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            if (order.DataContext is Order list)
+            {
+                var task = friedMiraak;
+                list.Remove(task);
+            }
+            order.itemsListView.Items.Remove($"{friedMiraak.ToString()}\t\t${friedMiraak.Price}");
+            foreach (var item in friedMiraak.SpecialInstructions)
+            {
+                order.itemsListView.Items.Remove($"-{item}");
+            }
+            order.itemsListView.Items.Remove(button);
         }
 
         private void Small_Checked(object sender, RoutedEventArgs e)

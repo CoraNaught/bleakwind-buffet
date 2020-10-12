@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -20,6 +21,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             ThalmorTriple thalmorTriple = new ThalmorTriple();
             Assert.IsAssignableFrom<Entree>(thalmorTriple);
             Assert.IsAssignableFrom<IOrderItem>(thalmorTriple);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            ThalmorTriple thalmorTriple = new ThalmorTriple();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(thalmorTriple);
         }
         [Fact]
         public void ShouldIncludeBunByDefault()

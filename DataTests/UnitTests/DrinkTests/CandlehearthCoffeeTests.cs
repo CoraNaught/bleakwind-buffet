@@ -10,6 +10,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -21,6 +22,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             CandlehearthCoffee candlehearthCoffee = new CandlehearthCoffee();
             Assert.IsAssignableFrom<Drink>(candlehearthCoffee);
             Assert.IsAssignableFrom<IOrderItem>(candlehearthCoffee);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            CandlehearthCoffee candlehearthCoffee = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(candlehearthCoffee);
         }
         [Fact]
         public void ShouldNotIncludeIceByDefault()

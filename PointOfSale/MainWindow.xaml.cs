@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,7 @@ namespace PointOfSale
             InitializeComponent();
             OrderTicket o = new OrderTicket();
             order.Child = o;
+            o.DataContext = new Order();
             DisplayControler m = new DisplayControler(o);
             containerBorder.Child = m;
 

@@ -12,9 +12,12 @@
         </Style>
     </UserControl.Resources>
     <DockPanel>
-        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="20">Order #100</TextBlock>
+        <TextBlock Name="title" DockPanel.Dock="Top" Text="{Binding Path=Number, StringFormat=Order# {0}}" TextAlignment="Center" FontSize="20"></TextBlock>
         <Button DockPanel.Dock="Bottom">Compete</Button>
         <Button Click="Button_Click" DockPanel.Dock="Bottom">Cancel</Button>
-        <ListView Name="itemsListView"/>
+        <TextBlock DockPanel.Dock="Bottom"  Text="{Binding Path=Subtotal, StringFormat=Subtotal:          ${0}}"/>
+        <TextBlock DockPanel.Dock="Bottom"  Text="{Binding Path=Tax, StringFormat=Tax:          ${0}}"/>
+        <TextBlock DockPanel.Dock="Bottom"  Text="{Binding Path=Total, StringFormat=Total:          ${0}}"/>
+        <ListView Name="itemsListView" DockPanel.Dock="Top"/>
     </DockPanel>
 </UserControl>

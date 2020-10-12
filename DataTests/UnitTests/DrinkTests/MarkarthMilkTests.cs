@@ -10,6 +10,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -21,6 +22,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             MarkarthMilk markarthMilk = new MarkarthMilk();
             Assert.IsAssignableFrom<Drink>(markarthMilk);
             Assert.IsAssignableFrom<IOrderItem>(markarthMilk);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            MarkarthMilk markarthMilk = new MarkarthMilk();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(markarthMilk);
         }
         [Fact]
         public void ShouldNotIncludeIceByDefault()

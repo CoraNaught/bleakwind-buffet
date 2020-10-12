@@ -10,6 +10,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -21,6 +22,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             DragonbornWaffleFries dragonbornWaffleFries = new DragonbornWaffleFries();
             Assert.IsAssignableFrom<Side>(dragonbornWaffleFries);
             Assert.IsAssignableFrom<IOrderItem>(dragonbornWaffleFries);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            DragonbornWaffleFries dragonbornWaffleFries = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(dragonbornWaffleFries);
         }
         [Fact]
         public void ShouldBeSmallByDefault()

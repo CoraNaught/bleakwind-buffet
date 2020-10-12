@@ -10,6 +10,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -21,6 +22,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             AretinoAppleJuice aretinoAppleJuice = new AretinoAppleJuice();
             Assert.IsAssignableFrom<Drink>(aretinoAppleJuice);
             Assert.IsAssignableFrom<IOrderItem>(aretinoAppleJuice);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            AretinoAppleJuice aretinoAppleJuice = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(aretinoAppleJuice);
         }
         [Fact]
         public void ShouldNotIncludeIceByDefault()

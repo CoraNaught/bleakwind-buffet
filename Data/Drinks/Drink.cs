@@ -21,6 +21,8 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 size = value;
                 NotifyPropertyChanged("Size");
+                NotifyPropertyChanged("Price");
+                NotifyPropertyChanged("Calories");
             }
         }
 

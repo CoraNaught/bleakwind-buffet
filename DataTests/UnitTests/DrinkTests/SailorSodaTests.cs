@@ -12,6 +12,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -23,6 +24,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             SailorSoda sailorSoda = new SailorSoda();
             Assert.IsAssignableFrom<Drink>(sailorSoda);
             Assert.IsAssignableFrom<IOrderItem>(sailorSoda);
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(sailorSoda);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            SailorSoda sailorSoda = new SailorSoda();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(sailorSoda);
         }
         [Fact]
         public void ShouldIncludeIceByDefault()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Data.Odbc;
 using System.Linq;
@@ -45,10 +46,43 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
             display.containerBorder.Child = menu;
-            order.itemsListView.Items.Add(sailorSoda.ToString());
+            if (order.DataContext is Order list)
+            {
+                var task = sailorSoda;
+                list.Add(task);
+            }
+            order.itemsListView.Items.Add($"{sailorSoda.ToString()}\t\t${sailorSoda.Price}");
+            foreach (var item in sailorSoda.SpecialInstructions)
+            {
+                order.itemsListView.Items.Add($"-{item}");
+            }
+            Button button = new Button();
+            button.Content = "Remove";
+            button.Click += Remove_Click;
+            order.itemsListView.Items.Add(button);
+        }
+        /// <summary>
+        /// Handles remove item click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            if (order.DataContext is Order list)
+            {
+                var task = sailorSoda;
+                list.Remove(task);
+            }
+            order.itemsListView.Items.Remove($"{sailorSoda.ToString()}\t\t${sailorSoda.Price}");
+            foreach (var item in sailorSoda.SpecialInstructions)
+            {
+                order.itemsListView.Items.Remove($"-{item}");
+            }
+            order.itemsListView.Items.Remove(button);
         }
         /// <summary>
         /// Handles ice check event

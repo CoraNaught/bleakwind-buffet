@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -20,6 +21,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             SmokehouseSkeleton smokehouseSkeleton = new SmokehouseSkeleton();
             Assert.IsAssignableFrom<Entree>(smokehouseSkeleton);
             Assert.IsAssignableFrom<IOrderItem>(smokehouseSkeleton);
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(smokehouseSkeleton);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            SmokehouseSkeleton smokehouseSkeleton = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(smokehouseSkeleton);
         }
         [Fact]
         public void ShouldInlcudeSausageByDefault()

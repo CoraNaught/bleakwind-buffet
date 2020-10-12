@@ -11,6 +11,7 @@ using BleakwindBuffet.Data.Entrees;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -22,6 +23,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             BriarheartBurger briarheart = new BriarheartBurger();
             Assert.IsAssignableFrom<Entree>(briarheart);
             Assert.IsAssignableFrom<IOrderItem>(briarheart);
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(briarheart);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            BriarheartBurger briarheart = new BriarheartBurger();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(briarheart);
         }
         [Fact]
         public void ShouldIncludeBunByDefault()

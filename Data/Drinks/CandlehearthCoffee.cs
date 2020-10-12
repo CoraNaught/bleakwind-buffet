@@ -23,6 +23,7 @@ namespace BleakwindBuffet.Data.Drinks
             set {
                 ice = value;
                 NotifyPropertyChanged("Ice");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
         /// <summary>
@@ -35,6 +36,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 decaf = value;
                 NotifyPropertyChanged("Decaf");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
         /// <summary>
@@ -47,6 +49,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 roomForCream = value;
                 NotifyPropertyChanged("Room for Cream");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
         /// <summary>

@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -20,6 +21,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             DoubleDraugr doubleDraugr = new DoubleDraugr();
             Assert.IsAssignableFrom<Entree>(doubleDraugr);
             Assert.IsAssignableFrom<IOrderItem>(doubleDraugr);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            DoubleDraugr doubleDraugr = new DoubleDraugr();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(doubleDraugr);
         }
         [Fact]
         public void ShouldIncludeBunByDefault()

@@ -26,6 +26,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 bun = value;
                 NotifyPropertyChanged("Bun");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
         /// <summary>
@@ -38,6 +39,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 ketchup = value;
                 NotifyPropertyChanged("Ketchup");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
         /// <summary>
@@ -50,6 +52,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 mustard = value;
                 NotifyPropertyChanged("Mustard");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
         /// <summary>
@@ -62,6 +65,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 pickle = value;
                 NotifyPropertyChanged("Pickle");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
         /// <summary>
@@ -74,6 +78,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 cheese = value;
                 NotifyPropertyChanged("Cheese");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
         /// <summary>

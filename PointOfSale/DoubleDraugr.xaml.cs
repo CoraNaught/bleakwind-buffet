@@ -3,6 +3,7 @@
  * Class name: DoubleDraugr.cs
  * Purpose: Class that DoubleDraugr user control
  */
+using Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,10 +44,43 @@ namespace PointOfSale
             this.order = order;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
             display.containerBorder.Child = menu;
-            order.itemsListView.Items.Add(doubleDraugr.ToString());
+            if (order.DataContext is Order list)
+            {
+                var task = doubleDraugr;
+                list.Add(task);
+            }
+            order.itemsListView.Items.Add($"{doubleDraugr.ToString()}\t\t${doubleDraugr.Price}");
+            foreach (var item in doubleDraugr.SpecialInstructions)
+            {
+                order.itemsListView.Items.Add($"-{item}");
+            }
+            Button button = new Button();
+            button.Content = "Remove";
+            button.Click += Remove_Click;
+            order.itemsListView.Items.Add(button);
+        }
+        /// <summary>
+        /// Handles remove item click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            if (order.DataContext is Order list)
+            {
+                var task = doubleDraugr;
+                list.Remove(task);
+            }
+            order.itemsListView.Items.Remove($"{doubleDraugr.ToString()}\t\t${doubleDraugr.Price}");
+            foreach (var item in doubleDraugr.SpecialInstructions)
+            {
+                order.itemsListView.Items.Remove($"-{item}");
+            }
+            order.itemsListView.Items.Remove(button);
         }
 
         private void Bun_Checked(object sender, RoutedEventArgs e)

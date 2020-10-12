@@ -11,6 +11,7 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -22,6 +23,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             MadOtarGrits madOtarGrits = new MadOtarGrits();
             Assert.IsAssignableFrom<Side>(madOtarGrits);
             Assert.IsAssignableFrom<IOrderItem>(madOtarGrits);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            MadOtarGrits madOtarGrits = new MadOtarGrits();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(madOtarGrits);
         }
         [Fact]
         public void ShouldBeSmallByDefault()

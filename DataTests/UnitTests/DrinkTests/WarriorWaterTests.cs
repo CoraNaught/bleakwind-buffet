@@ -9,6 +9,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DataTests.UnitTests.DrinkTests
 {
@@ -20,6 +21,13 @@ namespace DataTests.UnitTests.DrinkTests
             WarriorWater warriorWater = new WarriorWater();
             Assert.IsAssignableFrom<Drink>(warriorWater);
             Assert.IsAssignableFrom<IOrderItem>(warriorWater);
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(warriorWater);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            WarriorWater warriorWater = new WarriorWater();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(warriorWater);
         }
         [Fact]
         public void ShouldNotIncludeIceByDefault()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,7 @@ namespace PointOfSale
         public OrderTicket()
         {
             InitializeComponent();
+            itemsListView.DataContext = new Order();
         }
         /// <summary>
         /// Handles canel button click event

@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -20,6 +21,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             GardenOrcOmlette gardenOrcOmlette = new GardenOrcOmlette();
             Assert.IsAssignableFrom<Entree>(gardenOrcOmlette);
             Assert.IsAssignableFrom<IOrderItem>(gardenOrcOmlette);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            GardenOrcOmlette gardenOrcOmlette = new GardenOrcOmlette();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(gardenOrcOmlette);
         }
         [Fact]
         public void ShouldInlcudeBroccoliByDefault()

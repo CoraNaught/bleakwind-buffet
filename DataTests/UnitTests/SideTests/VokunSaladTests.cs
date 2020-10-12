@@ -10,6 +10,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -21,6 +22,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             VokunSalad vokunSalad = new VokunSalad();
             Assert.IsAssignableFrom<Side>(vokunSalad);
             Assert.IsAssignableFrom<IOrderItem>(vokunSalad);
+        }
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            VokunSalad vokunSalad = new VokunSalad();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(vokunSalad);
         }
         [Fact]
         public void ShouldBeSmallByDefault()
