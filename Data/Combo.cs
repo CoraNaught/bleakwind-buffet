@@ -35,6 +35,10 @@ namespace Data
                 {
                     entree = value;
                     NotifyPropertyChanged("Entree");
+                    NotifyPropertyChanged("Price");
+                    NotifyPropertyChanged("Calories");
+                    NotifyPropertyChanged("SpecialInstructions");
+                    PropertyChanged += ItemChangedListener;
                 }
             }
         }
@@ -50,6 +54,10 @@ namespace Data
                 {
                     drink = value;
                     NotifyPropertyChanged("Drink");
+                    NotifyPropertyChanged("Price");
+                    NotifyPropertyChanged("Calories");
+                    NotifyPropertyChanged("SpecialInstructions");
+                    PropertyChanged += ItemChangedListener;
                 }
             }
         }
@@ -65,6 +73,10 @@ namespace Data
                 {
                     side = value;
                     NotifyPropertyChanged("Side");
+                    NotifyPropertyChanged("Price");
+                    NotifyPropertyChanged("Calories");
+                    NotifyPropertyChanged("SpecialInstructions");
+                    PropertyChanged += ItemChangedListener;
                 }
             }
         }
@@ -75,7 +87,20 @@ namespace Data
         {
             get
             {
-                return entree.Calories + drink.Calories + side.Calories;
+                uint c = 0;
+                if(Drink != null)
+                {
+                    c += Drink.Calories;
+                }
+                if(Entree != null)
+                {
+                    c += Entree.Calories;
+                }
+                if(Side != null)
+                {
+                    c += Side.Calories;
+                }
+                return c;
             }
         }
         /// <summary>
@@ -119,6 +144,10 @@ namespace Data
         protected void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        void ItemChangedListener(object sender, PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(sender, e);
         }
     }
 }

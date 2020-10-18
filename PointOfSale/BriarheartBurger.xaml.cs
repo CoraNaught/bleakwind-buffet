@@ -27,7 +27,7 @@ namespace PointOfSale
     /// </summary>
     public partial class BriarheartBurger : UserControl
     {
-        DisplayControler parent;
+        DisplayControler display;
         MenuSelectionComponent menu;
         OrderTicket order;
         BleakwindBuffet.Data.Entrees.BriarheartBurger briarheartBurger = new BleakwindBuffet.Data.Entrees.BriarheartBurger();
@@ -40,48 +40,48 @@ namespace PointOfSale
         public BriarheartBurger(DisplayControler display, MenuSelectionComponent menu, OrderTicket order)
         {
             InitializeComponent();
-            this.parent = display;
+            this.display = display;
             this.menu = menu;
             this.order = order;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            parent.containerBorder.Child = menu;
+            ListBox listBox = new ListBox();
+            listBox.MouseLeftButtonUp += ListBox_MouseLeftButtonUp;
+            listBox.MouseRightButtonUp += ListBox_MouseRightButtonUp;
+            display.containerBorder.Child = menu;
             if (order.DataContext is Order list)
             {
                 var task = briarheartBurger;
                 list.Add(task);
             }
-            order.itemsListView.Items.Add($"{briarheartBurger.ToString()}\t\t${briarheartBurger.Price}");
+            listBox.Items.Add($"{briarheartBurger.ToString()}\t\t${briarheartBurger.Price}");
             foreach (var item in briarheartBurger.SpecialInstructions)
             {
-                order.itemsListView.Items.Add($"-{item}");
+                listBox.Items.Add($"-{item}");
             }
-            Button button = new Button();
-            button.Content = "Remove";
-            button.Click += Remove_Click;
-            order.itemsListView.Items.Add(button);
+            order.itemsListView.Items.Add(listBox);
         }
-        /// <summary>
-        /// Handles remove item click event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Remove_Click(object sender, RoutedEventArgs e)
+        private void ListBox_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Button button = (Button)sender;
+            order.itemsListView.Items.Remove(sender);
             if (order.DataContext is Order list)
             {
-                var task = briarheartBurger;
-                list.Remove(task);
+                var item = briarheartBurger;
+                list.Remove(item);
             }
-            order.itemsListView.Items.Remove($"{briarheartBurger.ToString()}\t\t${briarheartBurger.Price}");
-            foreach (var item in briarheartBurger.SpecialInstructions)
+        }
+
+        private void ListBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            order.itemsListView.Items.Remove(sender);
+            if (order.DataContext is Order list)
             {
-                order.itemsListView.Items.Remove($"-{item}");
+                var item = briarheartBurger;
+                list.Remove(item);
             }
-            order.itemsListView.Items.Remove(button);
+            display.containerBorder.Child = this;
         }
 
         private void Bun_Checked(object sender, RoutedEventArgs e)

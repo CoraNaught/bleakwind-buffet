@@ -44,43 +44,43 @@ namespace PointOfSale
             this.order = order;
         }
 
-        public void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ListBox listBox = new ListBox();
+            listBox.MouseLeftButtonUp += ListBox_MouseLeftButtonUp;
+            listBox.MouseRightButtonUp += ListBox_MouseRightButtonUp;
             display.containerBorder.Child = menu;
             if (order.DataContext is Order list)
             {
                 var task = doubleDraugr;
                 list.Add(task);
             }
-            order.itemsListView.Items.Add($"{doubleDraugr.ToString()}\t\t${doubleDraugr.Price}");
+            listBox.Items.Add($"{doubleDraugr.ToString()}\t\t${doubleDraugr.Price}");
             foreach (var item in doubleDraugr.SpecialInstructions)
             {
-                order.itemsListView.Items.Add($"-{item}");
+                listBox.Items.Add($"-{item}");
             }
-            Button button = new Button();
-            button.Content = "Remove";
-            button.Click += Remove_Click;
-            order.itemsListView.Items.Add(button);
+            order.itemsListView.Items.Add(listBox);
         }
-        /// <summary>
-        /// Handles remove item click event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Remove_Click(object sender, RoutedEventArgs e)
+        private void ListBox_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Button button = (Button)sender;
+            order.itemsListView.Items.Remove(sender);
             if (order.DataContext is Order list)
             {
-                var task = doubleDraugr;
-                list.Remove(task);
+                var item = doubleDraugr;
+                list.Remove(item);
             }
-            order.itemsListView.Items.Remove($"{doubleDraugr.ToString()}\t\t${doubleDraugr.Price}");
-            foreach (var item in doubleDraugr.SpecialInstructions)
+        }
+
+        private void ListBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            order.itemsListView.Items.Remove(sender);
+            if (order.DataContext is Order list)
             {
-                order.itemsListView.Items.Remove($"-{item}");
+                var item = doubleDraugr;
+                list.Remove(item);
             }
-            order.itemsListView.Items.Remove(button);
+            display.containerBorder.Child = this;
         }
 
         private void Bun_Checked(object sender, RoutedEventArgs e)

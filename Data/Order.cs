@@ -27,6 +27,7 @@ namespace Data
         {
             ObservableCollection<IOrderItem> result = this;
             result.Add(item);
+            NotifyPropertyChanged("Subtotal");
             return result;
         }
         /// <summary>
@@ -116,6 +117,7 @@ namespace Data
                     foreach (IOrderItem item in e.NewItems)
                     {
                         item.PropertyChanged += CollectionItemChangedListener;
+
                     }
                     break;
                 case NotifyCollectionChangedAction.Remove:
@@ -128,12 +130,19 @@ namespace Data
                     throw new NotImplementedException("NotifyCollectionChangedAction.Reset not supported");
             }
         }
+        public event PropertyChangedEventHandler PropertyChanges;
 
-        void CollectionItemChangedListener(object sener, PropertyChangedEventArgs e)
+        protected void NotifyPropertyChanged(string propertyName)
         {
-            OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
-            OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
-            OnPropertyChanged(new PropertyChangedEventArgs("Total"));
+            PropertyChanges?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        void CollectionItemChangedListener(object sender, PropertyChangedEventArgs e)
+        {
+                OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Total"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+            
         }
     }
 }

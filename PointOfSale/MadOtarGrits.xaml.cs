@@ -40,43 +40,43 @@ namespace PointOfSale
             Small.IsChecked = true;
         }
 
-        public void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ListBox listBox = new ListBox();
+            listBox.MouseLeftButtonUp += ListBox_MouseLeftButtonUp;
+            listBox.MouseRightButtonUp += ListBox_MouseRightButtonUp;
             display.containerBorder.Child = menu;
             if (order.DataContext is Order list)
             {
                 var task = otarGrits;
                 list.Add(task);
             }
-            order.itemsListView.Items.Add($"{otarGrits.ToString()}\t\t${otarGrits.Price}");
+            listBox.Items.Add($"{otarGrits.ToString()}\t\t${otarGrits.Price}");
             foreach (var item in otarGrits.SpecialInstructions)
             {
-                order.itemsListView.Items.Add($"-{item}");
+                listBox.Items.Add($"-{item}");
             }
-            Button button = new Button();
-            button.Content = "Remove";
-            button.Click += Remove_Click;
-            order.itemsListView.Items.Add(button);
+            order.itemsListView.Items.Add(listBox);
         }
-        /// <summary>
-        /// Handles remove item click event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Remove_Click(object sender, RoutedEventArgs e)
+        private void ListBox_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Button button = (Button)sender;
+            order.itemsListView.Items.Remove(sender);
             if (order.DataContext is Order list)
             {
-                var task = otarGrits;
-                list.Remove(task);
+                var item = otarGrits;
+                list.Remove(item);
             }
-            order.itemsListView.Items.Remove($"{otarGrits.ToString()}\t\t${otarGrits.Price}");
-            foreach (var item in otarGrits.SpecialInstructions)
+        }
+
+        private void ListBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            order.itemsListView.Items.Remove(sender);
+            if (order.DataContext is Order list)
             {
-                order.itemsListView.Items.Remove($"-{item}");
+                var item = otarGrits;
+                list.Remove(item);
             }
-            order.itemsListView.Items.Remove(button);
+            display.containerBorder.Child = this;
         }
 
         private void Small_Checked(object sender, RoutedEventArgs e)

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,6 +22,8 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderTicket : UserControl
     {
+        DisplayControler display;
+        MenuSelectionComponent menu;
         /// <summary>
         /// Order Ticket menu
         /// </summary>
@@ -28,15 +31,28 @@ namespace PointOfSale
         {
             InitializeComponent();
             itemsListView.DataContext = new Order();
+            this.display = display;
+            this.menu = menu;
         }
-        /// <summary>
-        /// Handles canel button click event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void Remove_Click(object sender, RoutedEventArgs e)
         {
-            itemsListView.Items.Clear();
+            itemsListView.Items.Remove(itemsListView.SelectedItem);
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            var screen = itemsListView.SelectedItem.ToString();
+            List<UIElement> list = new List<UIElement> { new ArentinoAppleJuice(display,menu,this), new SailorSoda(display,menu,this), new BriarheartBurger(display,menu,this) };
+            foreach(var item in list)
+            {
+                if(screen == item.ToString())
+                {
+                    display.containerBorder.Child = item;
+                }
+            }
+            itemsListView.Items.RemoveAt(itemsListView.SelectedIndex);
+           
         }
     }
 }

@@ -45,47 +45,47 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ListBox listBox = new ListBox();
+            listBox.MouseLeftButtonUp += ListBox_MouseLeftButtonUp;
+            listBox.MouseRightButtonUp += ListBox_MouseRightButtonUp;
             display.containerBorder.Child = menu;
             if (order.DataContext is Order list)
             {
                 var task = warriorWater;
                 list.Add(task);
             }
-            order.itemsListView.Items.Add($"{warriorWater.ToString()}\t\t${warriorWater.Price}");
+            listBox.Items.Add($"{warriorWater.ToString()}\t\t${warriorWater.Price}");
             foreach (var item in warriorWater.SpecialInstructions)
             {
-                order.itemsListView.Items.Add($"-{item}");
+                listBox.Items.Add($"-{item}");
             }
-            Button button = new Button();
-            button.Content = "Remove";
-            button.Click += Remove_Click;
-            order.itemsListView.Items.Add(button);
+            order.itemsListView.Items.Add(listBox);
+        }
+        private void ListBox_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            order.itemsListView.Items.Remove(sender);
+            if (order.DataContext is Order list)
+            {
+                var item = warriorWater;
+                list.Remove(item);
+            }
+        }
+
+        private void ListBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            order.itemsListView.Items.Remove(sender);
+            if (order.DataContext is Order list)
+            {
+                var item = warriorWater;
+                list.Remove(item);
+            }
+            display.containerBorder.Child = this;
         }
         /// <summary>
-        /// Handles remove item click event
+        /// Handles ice check event
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Remove_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = (Button)sender;
-            if (order.DataContext is Order list)
-            {
-                var task = warriorWater;
-                list.Remove(task);
-            }
-            order.itemsListView.Items.Remove($"{warriorWater.ToString()}\t\t${warriorWater.Price}");
-            foreach (var item in warriorWater.SpecialInstructions)
-            {
-                order.itemsListView.Items.Remove($"-{item}");
-            }
-            order.itemsListView.Items.Remove(button);
-        }
-            /// <summary>
-            /// Handles ice check event
-            /// </summary>
-            /// <param name="sender"></param>
-            /// <param name="e"></param>
         private void Ice_Checked(object sender, RoutedEventArgs e)
         {
             warriorWater.Ice = true;

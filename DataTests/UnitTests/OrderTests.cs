@@ -33,5 +33,40 @@ namespace DataTests.UnitTests
             order.Remove(coffee);
             Assert.Empty(order);
         }
+        [Fact]
+        public void CorrectProprties()
+        {
+            Order order = new Order();
+            CandlehearthCoffee coffee = new CandlehearthCoffee();
+            order.Add(coffee);
+            coffee.Decaf = true;
+            coffee.RoomForCream = true;
+            Assert.Contains(coffee, order);
+        }
+        [Fact]
+        public void CorrectSizeChange()
+        {
+            Order order = new Order();
+            CandlehearthCoffee coffee = new CandlehearthCoffee();
+            order.Add(coffee);
+            coffee.Decaf = true;
+            coffee.Size = Size.Large;
+            Assert.Contains(coffee, order);
+        }
+        [Fact]
+        public void OrderPropertiesChange()
+        {
+            var order = new Order();
+            var drink = new WarriorWater();
+            double tax = .1;
+            order.SalesTaxRate = tax;
+            order.Add(drink);
+            drink.Size = Size.Large;
+
+            Assert.Equal(order.Subtotal, drink.Price);
+            Assert.True(order.Tax == drink.Price*order.SalesTaxRate);
+            Assert.True(order.Total == drink.Price+drink.Price*order.SalesTaxRate);
+            Assert.True(drink.Calories == 0);
+        }
     }
 }

@@ -51,21 +51,41 @@ namespace PointOfSale
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ListBox listBox = new ListBox();
+            listBox.MouseLeftButtonUp += ListBox_MouseLeftButtonUp;
+            listBox.MouseRightButtonUp += ListBox_MouseRightButtonUp;
             display.containerBorder.Child = menu;
             if (order.DataContext is Order list)
             {
                 var task = appleJuice;
                 list.Add(task);
             }
-            order.itemsListView.Items.Add($"{appleJuice.ToString()}\t\t${appleJuice.Price}");
+            listBox.Items.Add($"{appleJuice.ToString()}\t\t${appleJuice.Price}");
             foreach (var item in appleJuice.SpecialInstructions)
             {
-                order.itemsListView.Items.Add($"-{item}");
+                listBox.Items.Add($"-{item}");
             }
-            Button button = new Button();
-            button.Content = "Remove";
-            button.Click += Remove_Click;
-            order.itemsListView.Items.Add(button);
+            order.itemsListView.Items.Add(listBox);
+        }
+        private void ListBox_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            order.itemsListView.Items.Remove(sender);
+            if (order.DataContext is Order list)
+            {
+                var item = appleJuice;
+                list.Remove(item);
+            }
+        }
+
+        private void ListBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            order.itemsListView.Items.Remove(sender);
+            if (order.DataContext is Order list)
+            {
+                var item = appleJuice;
+                list.Remove(item);
+            }
+            display.containerBorder.Child = this;
         }
         /// <summary>
         /// Handles remove item click event

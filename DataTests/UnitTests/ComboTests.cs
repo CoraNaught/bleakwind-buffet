@@ -82,10 +82,29 @@ namespace DataTests.UnitTests
         {
             var combo = new Combo();
             var drink = new WarriorWater();
+            Combo old = combo;
+            combo.Drink = drink;
 
             Assert.PropertyChanged(combo, "Drink", () =>
             {
                 combo.Drink = drink;
+            });
+            Assert.PropertyChanged(combo, "Price", () =>
+            {
+                Assert.True(combo.Price == old.Price + drink.Price);
+            });
+            Assert.PropertyChanged(combo, "Calories", () =>
+            {
+                Assert.True(combo.Calories == old.Calories + drink.Calories);
+            });
+            Assert.PropertyChanged(combo, "SpecialInstructions", () =>
+            {
+                old.SpecialInstructions.Add(drink.ToString());
+                foreach(var item in drink.SpecialInstructions)
+                {
+                    old.SpecialInstructions.Add(item);
+                }
+                Assert.Equal(old.SpecialInstructions, combo.SpecialInstructions);
             });
         }
         [Fact]
@@ -93,10 +112,29 @@ namespace DataTests.UnitTests
         {
             var combo = new Combo();
             var entree = new BriarheartBurger();
+            Combo old = combo;
+            combo.Entree = entree;
 
             Assert.PropertyChanged(combo, "Entree", () =>
             {
                 combo.Entree = entree;
+            });
+            Assert.PropertyChanged(combo, "Price", () =>
+            {
+                Assert.True(combo.Price == old.Price + entree.Price);
+            });
+            Assert.PropertyChanged(combo, "Calories", () =>
+            {
+                Assert.True(combo.Calories == old.Calories + entree.Calories);
+            });
+            Assert.PropertyChanged(combo, "SpecialInstructions", () =>
+            {
+                old.SpecialInstructions.Add(entree.ToString());
+                foreach (var item in entree.SpecialInstructions)
+                {
+                    old.SpecialInstructions.Add(item);
+                }
+                Assert.Equal(old.SpecialInstructions, combo.SpecialInstructions);
             });
         }
         [Fact]
@@ -104,10 +142,29 @@ namespace DataTests.UnitTests
         {
             var combo = new Combo();
             var side = new VokunSalad();
+            Combo old = combo;
+            combo.Side = side;
 
             Assert.PropertyChanged(combo, "Side", () =>
             {
                 combo.Side = side;
+            });
+            Assert.PropertyChanged(combo, "Price", () =>
+            {
+                Assert.True(combo.Price == old.Price + side.Price);
+            });
+            Assert.PropertyChanged(combo, "Calories", () =>
+            {
+                Assert.True(combo.Calories == old.Calories + side.Calories);
+            });
+            Assert.PropertyChanged(combo, "SpecialInstructions", () =>
+            {
+                old.SpecialInstructions.Add(side.ToString());
+                foreach (var item in side.SpecialInstructions)
+                {
+                    old.SpecialInstructions.Add(item);
+                }
+                Assert.Equal(old.SpecialInstructions, combo.SpecialInstructions);
             });
         }
     }

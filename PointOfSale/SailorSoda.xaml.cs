@@ -22,6 +22,7 @@ namespace PointOfSale
     /// </summary>
     public partial class SailorSoda : UserControl
     {
+        Button remove;
         DisplayControler display;
         MenuSelectionComponent menu;
         OrderTicket order;
@@ -48,42 +49,45 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void Button_Click(object sender, RoutedEventArgs e)
         {
+            ListBox listBox = new ListBox();
+            listBox.MouseLeftButtonUp += ListBox_MouseLeftButtonUp;
+            listBox.MouseRightButtonUp += ListBox_MouseRightButtonUp;
             display.containerBorder.Child = menu;
             if (order.DataContext is Order list)
             {
-                var task = sailorSoda;
-                list.Add(task);
+                var item = sailorSoda;
+                list.Add(item);
             }
-            order.itemsListView.Items.Add($"{sailorSoda.ToString()}\t\t${sailorSoda.Price}");
+            
+            listBox.Items.Add($"{sailorSoda.ToString()}\t\t${sailorSoda.Price}");
             foreach (var item in sailorSoda.SpecialInstructions)
             {
-                order.itemsListView.Items.Add($"-{item}");
+                listBox.Items.Add($"-{item}");
             }
-            Button button = new Button();
-            button.Content = "Remove";
-            button.Click += Remove_Click;
-            order.itemsListView.Items.Add(button);
+            order.itemsListView.Items.Add(listBox);
         }
-        /// <summary>
-        /// Handles remove item click event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Remove_Click(object sender, RoutedEventArgs e)
+
+        private void ListBox_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Button button = (Button)sender;
+            order.itemsListView.Items.Remove(sender);
             if (order.DataContext is Order list)
             {
-                var task = sailorSoda;
-                list.Remove(task);
+                var item = sailorSoda;
+                list.Remove(item);
             }
-            order.itemsListView.Items.Remove($"{sailorSoda.ToString()}\t\t${sailorSoda.Price}");
-            foreach (var item in sailorSoda.SpecialInstructions)
-            {
-                order.itemsListView.Items.Remove($"-{item}");
-            }
-            order.itemsListView.Items.Remove(button);
         }
+
+        private void ListBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            order.itemsListView.Items.Remove(sender);
+            if (order.DataContext is Order list)
+            {
+                var item = sailorSoda;
+                list.Remove(item);
+            }
+            display.containerBorder.Child = this;
+        }
+
         /// <summary>
         /// Handles ice check event
         /// </summary>

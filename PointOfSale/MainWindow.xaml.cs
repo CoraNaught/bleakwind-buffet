@@ -1,6 +1,7 @@
 ﻿using Data;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,18 +22,31 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        OrderTicket o;
         /// <summary>
         /// Main Window application
         /// </summary>
         public MainWindow()
         {
             InitializeComponent();
-            OrderTicket o = new OrderTicket();
+            o = new OrderTicket();
             order.Child = o;
             o.DataContext = new Order();
             DisplayControler m = new DisplayControler(o);
             containerBorder.Child = m;
 
+        }
+
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            o.DataContext = new Order();
+            o.itemsListView.Items.Clear();
+        }
+
+        private void completeButton_Click(object sender, RoutedEventArgs e)
+        {
+            o.DataContext = new Order();
+            o.itemsListView.Items.Clear();
         }
     }
 }

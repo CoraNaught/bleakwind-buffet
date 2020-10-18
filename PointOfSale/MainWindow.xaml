@@ -11,7 +11,15 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Border Name="containerBorder" Grid.Column="0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Border Name="containerBorder" Grid.Column="0" Grid.RowSpan="3"/>
         <Border Name="order" Grid.Column="1"/>
+        <Button Name="cancelButton" Grid.Column="1" Grid.Row="1" FontSize="20" Click="cancelButton_Click">Cancel</Button>
+        <Button Name="completeButton" Grid.Column="1" Grid.Row="2" FontSize="20" Click="completeButton_Click">Complete Order</Button>
+        
     </Grid>
 </Window>
