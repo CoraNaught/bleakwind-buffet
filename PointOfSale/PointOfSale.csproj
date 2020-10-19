@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RoundRegister">
+      <HintPath>..\RoundRegister.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -61,6 +64,15 @@
     <Compile Include="CandlehearthCoffee.xaml.cs">
       <DependentUpon>CandlehearthCoffee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CashPayment.xaml.cs">
+      <DependentUpon>CashPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Combo.xaml.cs">
+      <DependentUpon>Combo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CurrencyControl.xaml.cs">
+      <DependentUpon>CurrencyControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DragonbornWaffleFries.xaml.cs">
       <DependentUpon>DragonbornWaffleFries.xaml</DependentUpon>
     </Compile>
@@ -75,6 +87,9 @@
     </Compile>
     <Compile Include="OrderTicket.xaml.cs">
       <DependentUpon>OrderTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentOptions.xaml.cs">
+      <DependentUpon>PaymentOptions.xaml</DependentUpon>
     </Compile>
     <Compile Include="SailorSoda.xaml.cs">
       <DependentUpon>SailorSoda.xaml</DependentUpon>
@@ -103,6 +118,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CandlehearthCoffee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CashPayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Combo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CurrencyControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OrderTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaymentOptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

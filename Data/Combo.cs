@@ -38,7 +38,6 @@ namespace Data
                     NotifyPropertyChanged("Price");
                     NotifyPropertyChanged("Calories");
                     NotifyPropertyChanged("SpecialInstructions");
-                    PropertyChanged += ItemChangedListener;
                 }
             }
         }
@@ -57,7 +56,6 @@ namespace Data
                     NotifyPropertyChanged("Price");
                     NotifyPropertyChanged("Calories");
                     NotifyPropertyChanged("SpecialInstructions");
-                    PropertyChanged += ItemChangedListener;
                 }
             }
         }
@@ -76,7 +74,6 @@ namespace Data
                     NotifyPropertyChanged("Price");
                     NotifyPropertyChanged("Calories");
                     NotifyPropertyChanged("SpecialInstructions");
-                    PropertyChanged += ItemChangedListener;
                 }
             }
         }
@@ -144,10 +141,6 @@ namespace Data
         protected void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        void ItemChangedListener(object sender, PropertyChangedEventArgs e)
-        {
-            PropertyChanged?.Invoke(sender, e);
         }
     }
 }

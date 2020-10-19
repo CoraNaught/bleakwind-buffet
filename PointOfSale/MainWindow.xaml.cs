@@ -23,6 +23,7 @@ namespace PointOfSale
     public partial class MainWindow : Window
     {
         OrderTicket o;
+        PaymentOptions p;
         /// <summary>
         /// Main Window application
         /// </summary>
@@ -32,8 +33,9 @@ namespace PointOfSale
             o = new OrderTicket();
             order.Child = o;
             o.DataContext = new Order();
-            DisplayControler m = new DisplayControler(o);
-            containerBorder.Child = m;
+            DisplayControler d = new DisplayControler(o);
+            containerBorder.Child = d;
+            p = new PaymentOptions(this, d, o);
 
         }
 
@@ -45,8 +47,10 @@ namespace PointOfSale
 
         private void completeButton_Click(object sender, RoutedEventArgs e)
         {
-            o.DataContext = new Order();
-            o.itemsListView.Items.Clear();
+            containerBorder.Child = p;
+            cancelButton.IsEnabled = false;
+            completeButton.IsEnabled = false;
+            order.IsEnabled = false;
         }
     }
 }

@@ -185,5 +185,11 @@ namespace PointOfSale
             DragonbornWaffleFries d = new DragonbornWaffleFries(parent, this, order);
             parent.containerBorder.Child = d;
         }
+
+        private void combo_Click(object sender, RoutedEventArgs e)
+        {
+            Combo c = new Combo(parent, this, order);
+            parent.containerBorder.Child = c;
+        }
     }
 }

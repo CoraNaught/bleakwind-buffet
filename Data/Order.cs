@@ -18,6 +18,7 @@ namespace Data
     /// </summary>
     public class Order : ObservableCollection<IOrderItem>
     {
+        List<String> items = new List<string>();
         /// <summary>
         /// add one item to order
         /// </summary>
@@ -27,6 +28,7 @@ namespace Data
         {
             ObservableCollection<IOrderItem> result = this;
             result.Add(item);
+            items.Add($"{item.ToString()}\t\t${item.Price}");
             NotifyPropertyChanged("Subtotal");
             return result;
         }
@@ -39,6 +41,7 @@ namespace Data
         {
             ObservableCollection<IOrderItem> result = this;
             result.Remove(item);
+            items.Remove($"{item.ToString()}\t\t${item.Price}");
             return result;
         }
 
