@@ -5,9 +5,8 @@ using RoundRegister;
 
 namespace BleakwindBuffet.Data
 {
-    public class CashDrawerView : INotifyPropertyChanged
+    public class CashDrawerView 
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         public void FinalizeSale()
         {
             RoundRegister.CashDrawer.OpenDrawer();
@@ -70,7 +69,6 @@ namespace BleakwindBuffet.Data
                 return 0;
             }
         }
-        private int hundreds;
         public int Hundreds
         {
             get

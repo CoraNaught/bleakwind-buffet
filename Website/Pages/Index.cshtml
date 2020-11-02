@@ -1,0 +1,68 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to The Bleakwind Buffet</h1>
+    <p>
+        We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
+        Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger.
+        Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!.
+    </p>
+    <h3>Combo: $1 discount</h3>
+    <p>Any combination of a single drink, entree, and side </p>  
+    <div class="row">
+        <div class="column">
+            <h2>Entrees</h2>
+            <ul class="entree-list">
+
+                @foreach (BleakwindBuffet.Data.IOrderItem movie in BleakwindBuffet.Data.Menu.Entrees())
+                {
+                    <li>
+                        <div class="entrees">
+                            <p>@movie.ToString()  $@movie.Price</p>
+                            <p> Calories @movie.Calories</p>
+                        </div>
+                    </li>
+                }
+            </ul>
+            <h2>Sides</h2>
+            <ul class="side-list">
+                @foreach (BleakwindBuffet.Data.IOrderItem movie in BleakwindBuffet.Data.Menu.Sides())
+                {
+                    <li>
+                        <div class="sides">
+                            <p>@movie.ToString()  $@movie.Price</p>
+                            <p> Calories @movie.Calories</p>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="column">
+            <h2>Soda Flavors</h2>
+            <ul class="flavor-list">
+                <li>Blackberry</li>
+                <li>Cherry</li>
+                <li>Grapefuit</li>
+                <li>Lemon</li>
+                <li>Peach</li>
+                <li>Watermelon</li>
+            </ul>
+            <h2>Drinks</h2>
+            <ul class="drink-list">
+                @foreach (BleakwindBuffet.Data.IOrderItem movie in BleakwindBuffet.Data.Menu.Drinks())
+                {
+                    <li>
+                        <div class="drinks">
+                            <p>@movie.ToString()  $@movie.Price</p>
+                            <p> Calories @movie.Calories</p>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

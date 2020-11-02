@@ -18,7 +18,7 @@ namespace Data
     /// </summary>
     public class Order : ObservableCollection<IOrderItem>
     {
-        List<String> items = new List<string>();
+        private List<String> items = new List<string>();
         /// <summary>
         /// add one item to order
         /// </summary>
