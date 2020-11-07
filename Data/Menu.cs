@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
-
 namespace BleakwindBuffet.Data
 {
     /// <summary>
@@ -128,6 +127,114 @@ namespace BleakwindBuffet.Data
                 orderItems.Add(warriorWater);
             }
             return orderItems;
+        }
+        public static IEnumerable<IOrderItem> Search(string terms)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+            ///null check
+            if (terms == null) return FullMenu();
+
+            foreach (IOrderItem item in FullMenu())
+            {
+                //add movie if the title is a match
+                if (item.ToString() != null && item.ToString().ToLower().Contains(terms.ToLower()))
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+        public static string[] ItemType
+        {
+            get => new string[]
+            {
+            "Entree",
+            "Drink",
+            "Side"
+            };
+        }
+        /// <summary>
+        /// Filters the provided collection of movies
+        /// </summary>
+        /// <param name="movies">The collection of movies to filter</param>
+        /// <param name="ratings">The ratings to include</param>
+        /// <returns>A collection containing only movies that match the filter</returns>
+        public static IEnumerable<IOrderItem> FilterByItemType(IEnumerable<IOrderItem> movies, IEnumerable<string> ratings)
+        {
+            // If no filter is specified, just return the provided collection
+            if (ratings == null || ratings.Count() == 0) return movies;
+            List<IOrderItem> results = new List<IOrderItem>();
+            if (ratings.Contains("Entree"))
+            {
+                foreach (IOrderItem item in movies)
+                {
+                    foreach (IOrderItem entree in Entrees())
+                    {
+                        if (entree.ToString().Equals(item.ToString(), StringComparison.CurrentCultureIgnoreCase))
+                        {
+                            results.Add(item);
+                        }
+                    }
+                }
+            }
+            if (ratings.Contains("Drink"))
+            {
+                foreach (IOrderItem item in movies)
+                {
+                    foreach (IOrderItem drink in Drinks())
+                    {
+                        if (drink.ToString().Equals(item.ToString(), StringComparison.CurrentCultureIgnoreCase))
+                        {
+                            results.Add(item);
+                        }
+                    }
+                }
+            }
+            if (ratings.Contains("Side"))
+            {
+                foreach (IOrderItem item in movies)
+                {
+                    foreach (IOrderItem side in Sides())
+                    {
+                        if (side.ToString().Equals(item.ToString(), StringComparison.CurrentCultureIgnoreCase))
+                        {
+                            results.Add(item);
+                        }
+                    }
+                }
+            }
+
+            return results;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> movies, double? min, double? max)
+        {
+            if (min == null && max == null) return movies;
+            var results = new List<IOrderItem>();
+            // Both minimum and maximum specified
+            foreach (IOrderItem movie in movies)
+            {
+                if (movie.Calories >= min && movie.Calories <= max)
+                {
+                    results.Add(movie);
+                }
+            }
+            return results;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> movies, double? min, double? max)
+        {
+            if (min == null && max == null) return movies;
+            var results = new List<IOrderItem>();
+            // Both minimum and maximum specified
+            foreach (IOrderItem movie in movies)
+            {
+                if (movie.Price >= min && movie.Price <= max)
+                {
+                    results.Add(movie);
+                }
+            }
+            return results;
         }
     }
 }
