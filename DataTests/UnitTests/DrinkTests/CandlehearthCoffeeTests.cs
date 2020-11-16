@@ -24,6 +24,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.IsAssignableFrom<IOrderItem>(candlehearthCoffee);
         }
         [Fact]
+        public void ShouldBeAbleToGetDisciption()
+        {
+            CandlehearthCoffee candlehearthCoffee = new CandlehearthCoffee();
+            Assert.Equal(candlehearthCoffee.Description, "Fair trade, fresh ground dark roast coffee.");
+        }
+        [Fact]
         public void ShouldBeAssignableFromINotifyPropertyChanged()
         {
             CandlehearthCoffee candlehearthCoffee = new CandlehearthCoffee();

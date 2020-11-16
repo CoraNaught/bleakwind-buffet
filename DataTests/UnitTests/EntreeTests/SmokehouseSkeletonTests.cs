@@ -24,6 +24,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.IsAssignableFrom<INotifyPropertyChanged>(smokehouseSkeleton);
         }
         [Fact]
+        public void ShouldBeAbleToGetDisciption()
+        {
+            SmokehouseSkeleton smokehouse = new SmokehouseSkeleton();
+            Assert.Equal(smokehouse.Description, "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.");
+        }
+        [Fact]
         public void ShouldBeAssignableFromINotifyPropertyChanged()
         {
             SmokehouseSkeleton smokehouseSkeleton = new SmokehouseSkeleton();

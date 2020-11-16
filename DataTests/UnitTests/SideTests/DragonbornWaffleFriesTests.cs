@@ -24,6 +24,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.IsAssignableFrom<IOrderItem>(dragonbornWaffleFries);
         }
         [Fact]
+        public void ShouldBeAbleToGetDisciption()
+        {
+            DragonbornWaffleFries dragonborn = new DragonbornWaffleFries();
+            Assert.Equal(dragonborn.Description, "Crispy fried potato waffle fries.");
+        }
+        [Fact]
         public void ShouldBeAssignableFromINotifyPropertyChanged()
         {
             DragonbornWaffleFries dragonbornWaffleFries = new DragonbornWaffleFries();

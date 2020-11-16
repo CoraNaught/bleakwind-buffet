@@ -23,6 +23,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.IsAssignableFrom<IOrderItem>(gardenOrcOmlette);
         }
         [Fact]
+        public void ShouldBeAbleToGetDisciption()
+        {
+            GardenOrcOmlette garden = new GardenOrcOmlette();
+            Assert.Equal(garden.Description, "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.");
+        }
+        [Fact]
         public void ShouldBeAssignableFromINotifyPropertyChanged()
         {
             GardenOrcOmlette gardenOrcOmlette = new GardenOrcOmlette();

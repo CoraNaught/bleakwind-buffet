@@ -58,6 +58,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             aretinoAppleJuice.Size = Size.Large;
             Assert.True(aretinoAppleJuice.Size == Size.Large);
         }
+        [Fact]
+        public void ShouldBeAbleToGetDisciption()
+        {
+            AretinoAppleJuice aretinoAppleJuice = new AretinoAppleJuice();
+            Assert.Equal(aretinoAppleJuice.Description, " Fresh squeezed apple juice.");
+        }
 
         [Theory]
         [InlineData(Size.Small, 0.62)]

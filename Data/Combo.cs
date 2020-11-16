@@ -137,6 +137,8 @@ namespace Data
             }
         }
 
+        public string Description { get; }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void NotifyPropertyChanged(string propertyName)
         {

@@ -24,6 +24,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.IsAssignableFrom<IOrderItem>(friedMiraak);
         }
         [Fact]
+        public void ShouldBeAbleToGetDisciption()
+        {
+            FriedMiraak fried = new FriedMiraak();
+            Assert.Equal(fried.Description, "Perfectly prepared hash brown pancakes.");
+        }
+        [Fact]
         public void ShouldBeAssignableFromINotifyPropertyChanged()
         {
             FriedMiraak friedMiraak = new FriedMiraak();

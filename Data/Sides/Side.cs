@@ -51,5 +51,13 @@ namespace BleakwindBuffet.Data.Sides
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        /// <summary>
+        /// Discription of the item
+        /// </summary>
+        public abstract string Description
+        {
+            get;
+        }
     }
 }

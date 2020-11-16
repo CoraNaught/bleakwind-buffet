@@ -35,5 +35,13 @@ namespace BleakwindBuffet.Data.Entrees
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        /// <summary>
+        /// Discription of the item
+        /// </summary>
+        public abstract string Description
+        {
+            get;
+        }
     }
 }

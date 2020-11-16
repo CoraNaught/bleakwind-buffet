@@ -25,6 +25,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.IsAssignableFrom<IOrderItem>(madOtarGrits);
         }
         [Fact]
+        public void ShouldBeAbleToGetDisciption()
+        {
+            MadOtarGrits otarGrits = new MadOtarGrits();
+            Assert.Equal(otarGrits.Description, "Cheesey Grits.");
+        }
+        [Fact]
         public void ShouldBeAssignableFromINotifyPropertyChanged()
         {
             MadOtarGrits madOtarGrits = new MadOtarGrits();

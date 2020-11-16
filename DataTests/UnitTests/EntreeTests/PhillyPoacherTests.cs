@@ -23,6 +23,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.IsAssignableFrom<IOrderItem>(phillyPoacher);
         }
         [Fact]
+        public void ShouldBeAbleToGetDisciption()
+        {
+            PhillyPoacher p= new PhillyPoacher();
+            Assert.Equal(p.Description, "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.");
+        }
+        [Fact]
         public void ShouldBeAssignableFromINotifyPropertyChanged()
         {
             PhillyPoacher phillyPoacher = new PhillyPoacher();

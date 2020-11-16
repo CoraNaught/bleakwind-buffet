@@ -24,6 +24,12 @@ namespace DataTests.UnitTests.DrinkTests
             Assert.IsAssignableFrom<INotifyPropertyChanged>(warriorWater);
         }
         [Fact]
+        public void ShouldBeAbleToGetDisciption()
+        {
+            WarriorWater warriorWater = new WarriorWater();
+            Assert.Equal(warriorWater.Description, "It’s water. Just water.");
+        }
+        [Fact]
         public void ShouldBeAssignableFromINotifyPropertyChanged()
         {
             WarriorWater warriorWater = new WarriorWater();

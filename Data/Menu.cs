@@ -128,6 +128,11 @@ namespace BleakwindBuffet.Data
             }
             return orderItems;
         }
+        /// <summary>
+        /// filters based off of string
+        /// </summary>
+        /// <param name="terms"></param>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> Search(string terms)
         {
             List<IOrderItem> results = new List<IOrderItem>();
@@ -144,6 +149,9 @@ namespace BleakwindBuffet.Data
             }
             return results;
         }
+        /// <summary>
+        /// item type
+        /// </summary>
         public static string[] ItemType
         {
             get => new string[]
@@ -154,11 +162,11 @@ namespace BleakwindBuffet.Data
             };
         }
         /// <summary>
-        /// Filters the provided collection of movies
+        /// Filters by item type
         /// </summary>
-        /// <param name="movies">The collection of movies to filter</param>
-        /// <param name="ratings">The ratings to include</param>
-        /// <returns>A collection containing only movies that match the filter</returns>
+        /// <param name="movies">the menu</param>
+        /// <param name="ratings">itemtype</param>
+        /// <returns>A collection containing only items that match the filter</returns>
         public static IEnumerable<IOrderItem> FilterByItemType(IEnumerable<IOrderItem> movies, IEnumerable<string> ratings)
         {
             // If no filter is specified, just return the provided collection
@@ -206,7 +214,13 @@ namespace BleakwindBuffet.Data
 
             return results;
         }
-
+        /// <summary>
+        /// filters based off of calories
+        /// </summary>
+        /// <param name="movies">the menu</param>
+        /// <param name="min">the minimun calories</param>
+        /// <param name="max">the maximum calories</param>
+        /// <returns>the items that fit the filters</returns>
         public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> movies, double? min, double? max)
         {
             if (min == null && max == null) return movies;
@@ -221,7 +235,13 @@ namespace BleakwindBuffet.Data
             }
             return results;
         }
-
+        /// <summary>
+        /// filters based off of price
+        /// </summary>
+        /// <param name="movies">the menu</param>
+        /// <param name="min">the minimun price</param>
+        /// <param name="max">the maximum price</param>
+        /// <returns>the items that fit the filters</returns>
         public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> movies, double? min, double? max)
         {
             if (min == null && max == null) return movies;

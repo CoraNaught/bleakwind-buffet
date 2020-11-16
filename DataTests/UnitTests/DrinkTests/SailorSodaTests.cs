@@ -27,6 +27,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.IsAssignableFrom<INotifyPropertyChanged>(sailorSoda);
         }
         [Fact]
+        public void ShouldBeAbleToGetDisciption()
+        {
+            SailorSoda sailorSoda = new SailorSoda();
+            Assert.Equal(sailorSoda.Description, "An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice.");
+        }
+        [Fact]
         public void ShouldBeAssignableFromINotifyPropertyChanged()
         {
             SailorSoda sailorSoda = new SailorSoda();

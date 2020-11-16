@@ -4,6 +4,22 @@
     ViewData["Title"] = "Home page";
 }
 
+<style>
+    .flex-container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        list-style: none;
+    }
+
+    .flex-item {
+        padding: 5px;
+        width: 300px;
+        margin-top: 10px;
+        font-size: 1em;
+        text-align: center;
+    }
+</style>
 <div class="text-center">
     <h1 class="display-4">Welcome to The Bleakwind Buffet</h1>
     <p>
@@ -14,8 +30,8 @@
     <h3>Combo: $1 discount</h3>
     <p>Any combination of a single drink, entree, and side </p>
 </div>
-<div class="row">
-    <div class="column">
+<ul class="flex-container">
+    <li class="flex-item">
         <form id="movie-database">
 
             <div id="search">
@@ -53,71 +69,45 @@
 
             <div id="results">
                 <h1>Item Results</h1>
-
-                <ul class="movie-list">
-                    @foreach (BleakwindBuffet.Data.IOrderItem movie in @Model.Items)
-                    {
-                        <li>
-                            <div class="details">
-                                <p>@movie.ToString()  $@movie.Price</p>
-                                <p> Calories @movie.Calories</p>
-                            </div>
-                        </li>
-                    }
-                </ul>
+                @foreach (BleakwindBuffet.Data.IOrderItem movie in @Model.Items)
+                {
+                    <p class="font-weight-bold">@movie.ToString()  $@movie.Price</p>
+                    <p> Calories @movie.Calories</p>
+                    <p>@movie.Description</p>
+                }
             </div>
-
         </form>
-    </div>
-        <div class="column">
-            <h2>Entrees</h2>
-            <ul class="entree-list">
-
-                @foreach (BleakwindBuffet.Data.IOrderItem movie in BleakwindBuffet.Data.Menu.Entrees())
-                {
-                    <li>
-                        <div class="entrees">
-                            <p>@movie.ToString()  $@movie.Price</p>
-                            <p> Calories @movie.Calories</p>
-                        </div>
-                    </li>
-                }
-            </ul>
-            <h2>Sides</h2>
-            <ul class="side-list">
-                @foreach (BleakwindBuffet.Data.IOrderItem movie in BleakwindBuffet.Data.Menu.Sides())
-                {
-                    <li>
-                        <div class="sides">
-                            <p>@movie.ToString()  $@movie.Price</p>
-                            <p> Calories @movie.Calories</p>
-                        </div>
-                    </li>
-                }
-            </ul>
-        </div>
-        <div class="column">
-            <h2>Soda Flavors</h2>
-            <ul class="flavor-list">
-                <li>Blackberry</li>
-                <li>Cherry</li>
-                <li>Grapefuit</li>
-                <li>Lemon</li>
-                <li>Peach</li>
-                <li>Watermelon</li>
-            </ul>
-            <h2>Drinks</h2>
-            <ul class="drink-list">
-                @foreach (BleakwindBuffet.Data.IOrderItem movie in BleakwindBuffet.Data.Menu.Drinks())
-                {
-                    <li>
-                        <div class="drinks">
-                            <p>@movie.ToString()  $@movie.Price</p>
-                            <p> Calories @movie.Calories</p>
-                        </div>
-                    </li>
-                }
-            </ul>
-        </div>
-</div>
-
+    </li>
+    <li class="flex-item">
+        <h2>Entrees</h2>
+        @foreach (BleakwindBuffet.Data.IOrderItem movie in BleakwindBuffet.Data.Menu.Entrees())
+        {
+            <p class="font-weight-bold">@movie.ToString()  $@movie.Price</p>
+            <p> Calories @movie.Calories</p>
+            <p>@movie.Description</p>
+        }
+        <h2>Sides</h2>
+        @foreach (BleakwindBuffet.Data.IOrderItem movie in BleakwindBuffet.Data.Menu.Sides())
+        {
+            <p class="font-weight-bold">@movie.ToString()  $@movie.Price</p>
+            <p> Calories @movie.Calories</p>
+             <p>@movie.Description</p>
+        }
+    </li>
+    <li class="flex-item">
+        <h2>Soda Flavors</h2>
+         <p>Blackberry</p>
+         <p>Cherry</p>
+         <p>Grapefuit</p>
+         <p>Lemon</p>
+         <p>Peach</p>
+         <p>Watermelon</p>
+        <h2>Drinks</h2>
+        @foreach (BleakwindBuffet.Data.IOrderItem movie in BleakwindBuffet.Data.Menu.Drinks())
+        {
+            <p class="font-weight-bold">@movie.ToString()  $@movie.Price</p>
+            <p> Calories @movie.Calories</p>
+            <p>@movie.Description</p>
+        }
+    </li>
+</ul>

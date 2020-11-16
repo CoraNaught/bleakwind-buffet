@@ -23,6 +23,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.IsAssignableFrom<IOrderItem>(doubleDraugr);
         }
         [Fact]
+        public void ShouldBeAbleToGetDisciption()
+        {
+            DoubleDraugr doubleDraugr = new DoubleDraugr();
+            Assert.Equal(doubleDraugr.Description, "Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.");
+        }
+        [Fact]
         public void ShouldBeAssignableFromINotifyPropertyChanged()
         {
             DoubleDraugr doubleDraugr = new DoubleDraugr();

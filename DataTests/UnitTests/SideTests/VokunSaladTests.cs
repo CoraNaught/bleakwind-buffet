@@ -24,6 +24,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.IsAssignableFrom<IOrderItem>(vokunSalad);
         }
         [Fact]
+        public void ShouldBeAbleToGetDisciption()
+        {
+            VokunSalad vokun = new VokunSalad();
+            Assert.Equal(vokun.Description, "A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.");
+        }
+        [Fact]
         public void ShouldBeAssignableFromINotifyPropertyChanged()
         {
             VokunSalad vokunSalad = new VokunSalad();

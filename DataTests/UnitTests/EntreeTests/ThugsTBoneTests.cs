@@ -23,6 +23,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.IsAssignableFrom<IOrderItem>(thugsT_Bone);
         }
         [Fact]
+        public void ShouldBeAbleToGetDisciption()
+        {
+            ThugsT_Bone t = new ThugsT_Bone();
+            Assert.Equal(t.Description, "Juicy T-Bone, not much else to say.");
+        }
+        [Fact]
         public void ShouldBeAssignableFromINotifyPropertyChanged()
         {
             ThugsT_Bone thugsT_Bone = new ThugsT_Bone();
